@@ -1,3 +1,10 @@
+// Imports
+let webFrame = require('electron').webFrame;
+
+// Prevent zooming on some devices
+webFrame.setVisualZoomLevelLimits(1, 1)
+webFrame.setLayoutZoomLevelLimits(0, 0);
+
 // Initialize GM
 window.onload = GameMaker_Init;
 
@@ -24,6 +31,7 @@ gameCanvas.addEventListener('drop', e => {
 
   if (e.dataTransfer.files > 1) {
     // Reject
+
   } else {
     let file = {
       name: e.dataTransfer.files[0].name,
@@ -32,6 +40,7 @@ gameCanvas.addEventListener('drop', e => {
     };
 
     // Send file
+    // JSON.stringify(file)
   }
 
   return false;

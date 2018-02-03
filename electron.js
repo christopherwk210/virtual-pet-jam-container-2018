@@ -9,11 +9,17 @@ let mainWindow;
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 768,
+    width: 684,
+    height: 596,
+    maxWidth: 684,
+    maxHeight: 596,
     frame: false,
     transparent: true,
-    resizable: false
+    resizable: false,
+    title: 'Bin Monster',
+    minimizable: false,
+    maximizable: false,
+    fullscreenable: false
   });
 
   let loadURL = url.format({
