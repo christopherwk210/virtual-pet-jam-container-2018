@@ -1,5 +1,5 @@
 # Virtual Pet Container
-An electron container for our virtual pet jam entry, "Bin Monster". The actual game is made in GMS2, this is an application container built to accept features not supported by GMS2:
+An electron container for our (AndrewBGM, Thirteen and Topherlicious) virtual pet jam entry, "Bin Monster". The actual game is made in GMS2, this is an application container built to accept features not supported by GMS2:
 
 - File dropping
 - Frameless transparent window
