@@ -22,11 +22,11 @@ document.addEventListener('dragover', e => { e.preventDefault(); return false; }
 document.addEventListener('drop', e => { e.preventDefault(); return false; }, false);
 
 // Listen for file drops on the game canvas
-let gameCanvas = document.getElementById('canvas');
-gameCanvas.addEventListener('dragover', e => { e.preventDefault(); return false; }, false);
-gameCanvas.addEventListener('dragleave', e => { e.preventDefault(); return false; }, false);
-gameCanvas.addEventListener('dragend', e => { e.preventDefault(); return false; }, false);
-gameCanvas.addEventListener('drop', e => {
+let dropZone = document.getElementById('drag-region');
+dropZone.addEventListener('dragover', e => { e.preventDefault(); return false; }, false);
+dropZone.addEventListener('dragleave', e => { e.preventDefault(); return false; }, false);
+dropZone.addEventListener('dragend', e => { e.preventDefault(); return false; }, false);
+dropZone.addEventListener('drop', e => {
   e.preventDefault();
 
   if (e.dataTransfer.files > 1) {
