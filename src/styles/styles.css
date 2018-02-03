@@ -7,3 +7,9 @@
 
   cursor: default;
 }
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+}
