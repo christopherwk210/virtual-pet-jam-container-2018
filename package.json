@@ -1,0 +1,15 @@
+{
+  "name": "virtual-pet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/electron.js",
+  "scripts": {
+    "start": "electron src/electron.js"
+  },
+  "keywords": [],
+  "author": "Chris Anselmo <christopherwk210@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^1.7.12"
+  }
+}
