@@ -12,7 +12,8 @@ function createWindow () {
     width: 1024,
     height: 768,
     frame: false,
-    transparent: true    
+    transparent: true,
+    resizable: false
   });
 
   let loadURL = url.format({
