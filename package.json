@@ -4,14 +4,13 @@
   "description": "",
   "main": "src/electron.js",
   "scripts": {
-    "start": "concurrently -s first \"parcel src/index.html\" \"electron electron.js --debug\""
+    "start": "electron electron.js"
   },
   "keywords": [],
   "author": "Chris Anselmo <christopherwk210@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "concurrently": "^3.5.1",
-    "electron": "^1.7.12",
-    "parcel-bundler": "^1.5.1"
+    "electron": "^1.7.12"
   }
 }

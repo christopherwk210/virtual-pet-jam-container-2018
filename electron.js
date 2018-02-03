@@ -9,30 +9,21 @@ let mainWindow;
 
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1024,
+    height: 768,
     frame: false,
     transparent: true    
   });
 
-  let loadURL;
-
-  if (~process.argv.indexOf('--debug')) {
-    loadURL = url.format({
-      pathname: 'localhost:1234',
-      protocol: 'http:'
-    });
-  } else {
-    loadURL = url.format({
-      pathname: path.join(__dirname, 'src/index.html'),
-      protocol: 'file:',
-      slashes: true
-    });
-  }
+  let loadURL = url.format({
+    pathname: path.join(__dirname, 'src/index.html'),
+    protocol: 'file:',
+    slashes: true
+  });
 
   mainWindow.loadURL(loadURL);
 
-  // mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools();
 
   mainWindow.on('closed', () => {
     mainWindow = null;

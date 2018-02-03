@@ -1,7 +1,3 @@
-# Parcel
-.cache
-dist/
-
 # System
 .DS_Store
 
