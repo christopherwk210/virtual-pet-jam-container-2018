@@ -14,7 +14,7 @@ window.onload = GameMaker_Init;
  * @param {*} arg0 Argument to pass
  */
 function gmlCallback(func, arg0) {
-  window[`gml_Script_gmcallback_${func}`](null, null, arg0);
+  !!(window[`gml_Script_gmcallback_${func}`]) ? window[`gml_Script_gmcallback_${func}`](null, null, arg0) : void 0;
 }
 
 // Prevent drags on main doc
@@ -30,8 +30,7 @@ gameCanvas.addEventListener('drop', e => {
   e.preventDefault();
 
   if (e.dataTransfer.files > 1) {
-    // Reject
-
+    gmlCallback('filedrop', false);
   } else {
     let file = {
       name: e.dataTransfer.files[0].name,
@@ -40,7 +39,7 @@ gameCanvas.addEventListener('drop', e => {
     };
 
     // Send file
-    // JSON.stringify(file)
+    gmlCallback('filedrop', JSON.stringify(file));
   }
 
   return false;
