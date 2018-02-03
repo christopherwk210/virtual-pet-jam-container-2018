@@ -7,12 +7,15 @@ const url = require('url');
 
 let mainWindow;
 
+let width = 684 * 2;
+let height = 596 * 2;
+
 function createWindow () {
   mainWindow = new BrowserWindow({
-    width: 684,
-    height: 596,
-    maxWidth: 684,
-    maxHeight: 596,
+    width: width,
+    height: height,
+    maxWidth: width,
+    maxHeight: height,
     frame: false,
     transparent: true,
     resizable: false,
