@@ -44,3 +44,55 @@ canvas {
   align-items: center;
   -webkit-app-region: drag;
 }
+
+.round-button {
+  position: absolute;
+  background-image: url('../images/round_button.png');
+  width: 130px;
+  height: 130px;
+  top: 230px;
+  left: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.round-button:active {
+  background-image: url('../images/round_button_p.png');
+}
+
+.reset-button {
+  position: absolute;
+  background-image: url('../images/reset_button.png');
+  width: 74px;
+  height: 64px;
+  top: 29px;
+  left: 88px;
+  cursor: pointer;
+}
+
+.reset-button:active {
+  background-image: url('../images/reset_button_p.png');
+}
+
+.long-button {
+  position: absolute;
+  background-image: url('../images/long_button.png');
+  cursor: pointer;
+  width: 138px;
+  height: 90px;
+  border-radius: 50%;
+}
+
+.long-button:active {
+  background-image: url('../images/long_button_p.png');
+}
+
+.long-button.top {
+  top: 172px;
+  right: 38px;
+}
+
+.long-button.bottom {
+  top: 333px;
+  right: 38px;
+}

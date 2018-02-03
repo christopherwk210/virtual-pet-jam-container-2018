@@ -7,8 +7,8 @@ const url = require('url');
 
 let mainWindow;
 
-let width = 684 * 2;
-let height = 596 * 2;
+let width = 684;
+let height = 596;
 
 function createWindow () {
   mainWindow = new BrowserWindow({
