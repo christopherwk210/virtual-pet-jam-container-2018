@@ -44,3 +44,14 @@ gameCanvas.addEventListener('drop', e => {
 
   return false;
 });
+
+// Listen to button presses
+let roundButton = document.getElementById('round');
+let resetButton = document.getElementById('reset');
+let topLongButton = document.getElementById('top');
+let bottomLongButton = document.getElementById('bottom');
+
+roundButton.addEventListener('click', e => gmlCallback('select', true));
+resetButton.addEventListener('click', e => gmlCallback('reset_button', true));
+topLongButton.addEventListener('click', e => gmlCallback('up', true));
+bottomLongButton.addEventListener('click', e => gmlCallback('down', true));

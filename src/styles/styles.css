@@ -43,6 +43,7 @@ canvas {
   justify-content: center;
   align-items: center;
   -webkit-app-region: drag;
+  position: relative;
 }
 
 .round-button {
@@ -95,4 +96,15 @@ canvas {
 .long-button.bottom {
   top: 333px;
   right: 38px;
+}
+
+.shine {
+  width: 262px;
+  height: 262px;
+  background-image: url(../images/shine.png);
+  position: absolute;
+  top: 153px;
+  left: 224px;
+  mix-blend-mode: lighten;
+  opacity: 0.2;
 }
