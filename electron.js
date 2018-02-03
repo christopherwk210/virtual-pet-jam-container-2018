@@ -19,7 +19,7 @@ function createWindow () {
     frame: false,
     transparent: true,
     resizable: false,
-    title: 'Bin Monster',
+    title: 'Trash Bin Monster',
     minimizable: false,
     maximizable: false,
     fullscreenable: false
