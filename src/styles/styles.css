@@ -32,8 +32,21 @@ body {
   background-image: url('../images/tamagotchi.png');
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: -10;
+  -webkit-app-region: drag;
+}
+
+.screen {
+  position: absolute;
+  background-image: url('../images/screen.png');
+  width: 308px;
+  height: 308px;
   z-index: -1;
   -webkit-app-region: drag;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 canvas {
