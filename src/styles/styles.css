@@ -144,3 +144,26 @@ canvas {
   width: 240px;
   height: 180px;
 }
+
+#vol-up, #vol-down {
+  position: absolute;
+  width: 32px;
+  height: 27px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 1s;
+}
+
+#vol-up:hover, #vol-down:hover {
+  opacity: 1 !important;
+}
+
+#vol-up {
+  top: 95px;
+  background-image: url('../images/sound_on.png');
+}
+
+#vol-down {
+  bottom: 100px;
+  background-image: url('../images/sound_off.png');
+}

@@ -1,23 +1,5 @@
-// Proxy console usage
-const originalConsoleLog = console.log.bind(console);
-console.log = (...args) => {
-  originalConsoleLog(...args);
-
-  // Listen for game start
-  if (args[0] && typeof args[0] === 'string' && ~args[0].indexOf('Application Surface created')) {
-    document.body.style.opacity = 1;
-  }
-}
-
 // Imports
 let webFrame = require('electron').webFrame;
-
-let { remote } = require('electron');
-let win = remote.getCurrentWindow();
-
-let scale = 1;
-let width = 684;
-let height = 596;
 
 // Prevent zooming on some devices
 webFrame.setVisualZoomLevelLimits(1, 1)
@@ -34,6 +16,37 @@ window.onload = GameMaker_Init;
 function gmlCallback(func, arg0) {
   !!(window[`gml_Script_gmcallback_${func}`]) ? window[`gml_Script_gmcallback_${func}`](null, null, arg0) : void 0;
 }
+
+// Proxy console usage
+const originalConsoleLog = console.log.bind(console);
+console.log = (...args) => {
+  originalConsoleLog(...args);
+
+  // Listen for game start
+  if (args[0] && typeof args[0] === 'string' && ~args[0].indexOf('Application Surface created')) {
+    gameReady();
+  }
+}
+
+// Volume elements
+let volOn = document.getElementById('vol-up');
+let volOff = document.getElementById('vol-down');
+
+/**
+ * Called when GM has created the main application surface
+ */
+function gameReady() {
+  document.body.style.opacity = 1;
+
+  setTimeout(() => {
+    volOn.style.opacity = 0;
+    volOff.style.opacity = 0;
+  }, 1000);
+}
+
+// Listen for volume adjustments
+volOn.addEventListener('click', e => gmlCallback('enable_audio', true));
+volOff.addEventListener('click', e => gmlCallback('disable_audio', true));
 
 // Prevent drags on main doc
 document.addEventListener('dragover', e => { e.preventDefault(); return false; }, false);
