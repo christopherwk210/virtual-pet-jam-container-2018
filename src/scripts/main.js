@@ -42,8 +42,9 @@ document.addEventListener('drop', e => { e.preventDefault(); return false; }, fa
 // Listen for file drops on the game canvas
 let dropZone = document.getElementById('drag-region');
 dropZone.addEventListener('contextmenu', e => {
-  // scale -= 0.5;
+  // scale += 0.5;
   // document.documentElement.style.transform = `scale(${scale})`;
+  // document.getElementById('bg').style.transform = `scale(${1/scale})`;
   // win.setSize(width * scale, height * scale);
   // win.center();
 });

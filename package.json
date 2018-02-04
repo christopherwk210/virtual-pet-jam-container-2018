@@ -4,14 +4,15 @@
   "description": "",
   "main": "electron.js",
   "scripts": {
-    "start": "electron electron.js",
-    "build.win": "electron-packager ./ BinMonster --platform=win32 --arch=ia32 --asar --overwrite --out=bin",
-    "build.mac": "electron-packager ./ BinMonster --platform=darwin --asar --overwrite --out=bin"
+    "start": "electron electron.js --debug",
+    "build.win": "electron-packager ./ BinMonster --platform=win32 --arch=ia32 --asar --ignore='node_modules' --overwrite --out=bin",
+    "build.mac": "electron-packager ./ BinMonster --platform=darwin --asar --ignore='node_modules' --overwrite --out=bin",
+    "build": "concurrently \"npm run build.win\" \"npm run build.mac\""
   },
   "keywords": [],
   "author": "Chris Anselmo <christopherwk210@gmail.com>",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "concurrently": "^3.5.1",
     "electron": "^1.7.12",
     "electron-packager": "^10.1.2"

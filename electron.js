@@ -31,7 +31,9 @@ function createWindow () {
 
   mainWindow.loadURL(loadURL);
 
-  mainWindow.webContents.openDevTools();
+  if (~process.argv.indexOf('--debug')) {
+    mainWindow.webContents.openDevTools();
+  }
 
   mainWindow.on('closed', () => {
     mainWindow = null;
