@@ -71,8 +71,21 @@ document.addEventListener('drop', e => { e.preventDefault(); return false; }, fa
 
 // Listen for file drops on the game canvas
 let dropZone = document.getElementById('drag-region');
-dropZone.addEventListener('dragover', e => { e.preventDefault(); gmlCallback('dragover', true); return false; }, false);
-dropZone.addEventListener('dragleave', e => { e.preventDefault(); gmlCallback('dragleave', true); return false; }, false);
+
+dropZone.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropZone.classList.add('dragging');
+  gmlCallback('dragover', true);
+  return false;
+}, false);
+
+dropZone.addEventListener('dragleave', e => {
+  e.preventDefault();
+  dropZone.classList.remove('dragging');
+  gmlCallback('dragleave', true);
+  return false;
+}, false);
+
 dropZone.addEventListener('dragend', e => { e.preventDefault(); return false; }, false);
 dropZone.addEventListener('drop', e => {
   e.preventDefault();

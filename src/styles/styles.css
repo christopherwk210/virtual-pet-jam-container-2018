@@ -147,6 +147,10 @@ canvas {
   height: 180px;
 }
 
+#drag-region.dragging {
+  /* cursor: move; */
+}
+
 #vol-up, #vol-down {
   position: absolute;
   width: 32px;

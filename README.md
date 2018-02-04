@@ -5,7 +5,7 @@ An electron container for our (AndrewBGM, Thirteen and Topherlicious) virtual pe
 - Frameless transparent window
 - Cross platform support with only the HTML5 module ;)
 
-See source of actual game [here](https://github.com/AndrewBGM/virtual-pet-jam-2018).
+See source of actual game [here](https://github.com/AndrewBGM/trash-bin-monster).
 
 # License
 MIT
