@@ -4,7 +4,7 @@ console.log = (...args) => {
   originalConsoleLog(...args);
 
   // Listen for game start
-  if (~args[0].indexOf('Application Surface created')) {
+  if (args[0] && typeof args[0] === 'string' && ~args[0].indexOf('Application Surface created')) {
     document.body.style.opacity = 1;
   }
 }
@@ -41,15 +41,8 @@ document.addEventListener('drop', e => { e.preventDefault(); return false; }, fa
 
 // Listen for file drops on the game canvas
 let dropZone = document.getElementById('drag-region');
-dropZone.addEventListener('contextmenu', e => {
-  // scale += 0.5;
-  // document.documentElement.style.transform = `scale(${scale})`;
-  // document.getElementById('bg').style.transform = `scale(${1/scale})`;
-  // win.setSize(width * scale, height * scale);
-  // win.center();
-});
-dropZone.addEventListener('dragover', e => { e.preventDefault(); return false; }, false);
-dropZone.addEventListener('dragleave', e => { e.preventDefault(); return false; }, false);
+dropZone.addEventListener('dragover', e => { e.preventDefault(); gmlCallback('dragover', true); return false; }, false);
+dropZone.addEventListener('dragleave', e => { e.preventDefault(); gmlCallback('dragleave', true); return false; }, false);
 dropZone.addEventListener('dragend', e => { e.preventDefault(); return false; }, false);
 dropZone.addEventListener('drop', e => {
   e.preventDefault();
@@ -60,7 +53,8 @@ dropZone.addEventListener('drop', e => {
     let file = {
       name: e.dataTransfer.files[0].name,
       size: e.dataTransfer.files[0].size,
-      type: e.dataTransfer.files[0].type
+      type: e.dataTransfer.files[0].type,
+      createdToday: new Date(e.dataTransfer.files[0].lastModifiedDate).getDay() === new Date().getDay()
     };
 
     // Send file
