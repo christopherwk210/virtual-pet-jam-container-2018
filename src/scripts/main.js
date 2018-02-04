@@ -1,6 +1,13 @@
 // Imports
 let webFrame = require('electron').webFrame;
 
+let { remote } = require('electron');
+let win = remote.getCurrentWindow();
+
+let scale = 1;
+let width = 684;
+let height = 596;
+
 // Prevent zooming on some devices
 webFrame.setVisualZoomLevelLimits(1, 1)
 webFrame.setLayoutZoomLevelLimits(0, 0);
@@ -23,6 +30,12 @@ document.addEventListener('drop', e => { e.preventDefault(); return false; }, fa
 
 // Listen for file drops on the game canvas
 let dropZone = document.getElementById('drag-region');
+dropZone.addEventListener('contextmenu', e => {
+  // scale -= 0.5;
+  // document.documentElement.style.transform = `scale(${scale})`;
+  // win.setSize(width * scale, height * scale);
+  // win.center();
+});
 dropZone.addEventListener('dragover', e => { e.preventDefault(); return false; }, false);
 dropZone.addEventListener('dragleave', e => { e.preventDefault(); return false; }, false);
 dropZone.addEventListener('dragend', e => { e.preventDefault(); return false; }, false);
@@ -55,3 +68,11 @@ roundButton.addEventListener('click', e => gmlCallback('select', true));
 resetButton.addEventListener('click', e => gmlCallback('reset_button', true));
 topLongButton.addEventListener('click', e => gmlCallback('up', true));
 bottomLongButton.addEventListener('click', e => gmlCallback('down', true));
+
+// Hue shift
+let randDegrees = Math.random() * 360;
+document.getElementById('bg').style.filter = `hue-rotate(${randDegrees}deg)`;
+roundButton.style.filter = `hue-rotate(${randDegrees}deg)`;
+resetButton.style.filter = `hue-rotate(${randDegrees}deg)`;
+topLongButton.style.filter = `hue-rotate(${randDegrees}deg)`;
+bottomLongButton.style.filter = `hue-rotate(${randDegrees}deg)`;
