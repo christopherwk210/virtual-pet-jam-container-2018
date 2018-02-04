@@ -1,3 +1,14 @@
+// Proxy console usage
+const originalConsoleLog = console.log.bind(console);
+console.log = (...args) => {
+  originalConsoleLog(...args);
+
+  // Listen for game start
+  if (~args[0].indexOf('Application Surface created')) {
+    document.body.style.opacity = 1;
+  }
+}
+
 // Imports
 let webFrame = require('electron').webFrame;
 

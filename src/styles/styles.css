@@ -15,6 +15,10 @@ html, body {
   margin: 0;
 }
 
+body {
+  opacity: 0;
+}
+
 * {
   -webkit-app-region: no-drag;
 }
