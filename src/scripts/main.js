@@ -41,6 +41,7 @@ let volOff = document.getElementById('vol-down');
  */
 function gameReady() {
   document.body.style.opacity = 1;
+  document.body.style.transform = 'scale(1)';
 
   setTimeout(() => {
     volOn.style.opacity = 0;
@@ -49,8 +50,6 @@ function gameReady() {
 }
 
 document.addEventListener('keydown', e => {
-  console.log(e)
-
   if (os === 'darwin') {
     if (e.key.toUpperCase() === 'Q' && e.metaKey) {
       remote.app.quit();
