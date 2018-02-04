@@ -1,5 +1,9 @@
 // Imports
 let webFrame = require('electron').webFrame;
+let remote = require('electron').remote;
+
+// Determine platform
+const os = remote.require('os').platform();
 
 // Prevent zooming on some devices
 webFrame.setVisualZoomLevelLimits(1, 1)
@@ -43,6 +47,20 @@ function gameReady() {
     volOff.style.opacity = 0;
   }, 1000);
 }
+
+document.addEventListener('keydown', e => {
+  console.log(e)
+
+  if (os === 'darwin') {
+    if (e.key.toUpperCase() === 'Q' && e.metaKey) {
+      remote.app.quit();
+    }
+  } else {
+    if (e.key.toUpperCase() === 'F4' && e.altKey) {
+      remote.app.quit();
+    }
+  }
+});
 
 // Listen for volume adjustments
 volOn.addEventListener('click', e => gmlCallback('enable_audio', true));
