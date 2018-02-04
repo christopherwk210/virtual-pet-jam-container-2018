@@ -152,6 +152,7 @@ canvas {
   left: 50%;
   transform: translateX(-50%);
   transition: opacity 1s;
+  cursor: pointer;
 }
 
 #vol-up:hover, #vol-down:hover {
