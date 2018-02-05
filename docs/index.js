@@ -21,7 +21,10 @@ function animateBubbles() {
   var newBubbles = [];
 
   bubbles.forEach(function(bubble, index) {
-    if (index > 20) return;
+    if (index > 20) {
+      document.body.removeChild(bubble.element);
+      return;
+    }
 
     bubble.currentPos = bubble.currentPos - bubble.speed;
     bubble.element.style.transform = 'translateY(' + bubble.currentPos + 'px)';
