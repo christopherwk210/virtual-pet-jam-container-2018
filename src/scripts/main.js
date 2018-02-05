@@ -12,6 +12,8 @@ webFrame.setLayoutZoomLevelLimits(0, 0);
 // Initialize GM
 window.onload = GameMaker_Init;
 
+let volumeOn = true;
+
 /**
  * Convenience script for calling GML callback scripts
  * @param {string} func GM function name (after gmcallback_)
@@ -29,6 +31,11 @@ console.log = (...args) => {
   // Listen for game start
   if (args[0] && typeof args[0] === 'string' && ~args[0].indexOf('Application Surface created')) {
     gameReady();
+  }
+
+  // Listen for show finish
+  if (args[0] && typeof args[0] === 'string' && ~args[0].indexOf('open_finish')) {
+    require('electron').shell.openExternal('https://christopherwk210.github.io/virtual-pet-jam-container-2018/');    
   }
 }
 
@@ -62,8 +69,22 @@ document.addEventListener('keydown', e => {
 });
 
 // Listen for volume adjustments
-volOn.addEventListener('click', e => gmlCallback('enable_audio', true));
-volOff.addEventListener('click', e => gmlCallback('disable_audio', true));
+volOn.addEventListener('click', toggleVolume);
+volOff.addEventListener('click', toggleVolume);
+
+function toggleVolume() {
+  if (volumeOn) {
+    gmlCallback('disable_audio', true)
+    volumeOn = false;
+    volOn.style.backgroundImage = 'url(images/sound_off.png)';
+    volOff.style.backgroundImage = 'url(images/sound_off.png)';
+  } else {
+    gmlCallback('enable_audio', true)
+    volumeOn = true;
+    volOn.style.backgroundImage = 'url(images/sound_on.png)';
+    volOff.style.backgroundImage = 'url(images/sound_on.png)';
+  }
+}
 
 // Prevent drags on main doc
 document.addEventListener('dragover', e => { e.preventDefault(); return false; }, false);
