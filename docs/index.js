@@ -1,9 +1,9 @@
 (function() {
 
-  setInterval(function() { createBubble('B1.png', 4); }, 1100);
-  setInterval(function() { createBubble('B2.png', 6); }, 1000);
-  setInterval(function() { createBubble('B3.png', 8); }, 800);
-  setInterval(function() { createBubble('B4.png', 10); }, 600);
+  setInterval(function() { createBubble('B1.png', 4); }, 400);
+  setInterval(function() { createBubble('B2.png', 6); }, 300);
+  setInterval(function() { createBubble('B3.png', 8); }, 200);
+  setInterval(function() { createBubble('B4.png', 10); }, 100);
 
   requestAnimationFrame(animateBubbles);
 })();
@@ -21,7 +21,7 @@ function animateBubbles() {
   var newBubbles = [];
 
   bubbles.forEach(function(bubble, index) {
-    if (index > 20) {
+    if (index > 100) {
       document.body.removeChild(bubble.element);
       return;
     }
