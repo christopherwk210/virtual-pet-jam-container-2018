@@ -147,9 +147,9 @@ canvas {
   height: 180px;
 }
 
-#drag-region.dragging {
-  /* cursor: move; */
-}
+/* #drag-region.dragging {
+  cursor: move;
+} */
 
 #vol-up, #vol-down {
   position: absolute;
