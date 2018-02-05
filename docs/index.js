@@ -20,7 +20,9 @@ function getDocSize() {
 function animateBubbles() {
   var newBubbles = [];
 
-  bubbles.forEach(function(bubble) {
+  bubbles.forEach(function(bubble, index) {
+    if (index > 20) return;
+
     bubble.currentPos = bubble.currentPos - bubble.speed;
     bubble.element.style.transform = 'translateY(' + bubble.currentPos + 'px)';
 
