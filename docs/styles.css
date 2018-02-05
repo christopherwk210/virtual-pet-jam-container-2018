@@ -21,3 +21,8 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.bubble {
+  position: absolute;
+  top: 100%;
+}
