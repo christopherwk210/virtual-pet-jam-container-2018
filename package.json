@@ -5,8 +5,8 @@
   "main": "electron.js",
   "scripts": {
     "start": "electron electron.js --debug",
-    "build.win": "electron-packager ./ TrashBinMonster --platform=win32 --arch=ia32 --asar --ignore='node_modules' --overwrite --out=bin",
-    "build.mac": "electron-packager ./ TrashBinMonster --platform=darwin --asar --ignore='node_modules' --overwrite --out=bin",
+    "build.win": "electron-packager ./ TrashBinMonster --platform=win32 --arch=ia32 --asar --icon=tb-icon.ico --ignore='node_modules' --overwrite --out=bin",
+    "build.mac": "electron-packager ./ TrashBinMonster --platform=darwin --asar --icon=tb-icon.icns --ignore='node_modules' --overwrite --out=bin",
     "build": "concurrently \"npm run build.win\" \"npm run build.mac\""
   },
   "keywords": [],
